@@ -19,7 +19,7 @@ namespace Jorteck.HotReload
     private readonly PhysicalFileProvider fileProvider;
     private readonly CancellationTokenSource cts = new CancellationTokenSource();
 
-    public HotReloadService()
+    public HotReloadService(PluginStorageService pluginStorageService)
     {
       if (!EnvironmentConfig.ReloadEnabled)
       {
@@ -27,7 +27,7 @@ namespace Jorteck.HotReload
         return;
       }
 
-      string path = Path.Combine(Path.GetDirectoryName(typeof(AnvilCore).Assembly.Location)!, "Plugins");
+      string path = Directory.GetParent(typeof(HotReloadService).Assembly.Location)!.Parent!.FullName;
       Log.Warn($"Setting watch on directory {path} for plugin binary changes...");
 
       fileProvider = new PhysicalFileProvider(path)
