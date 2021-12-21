@@ -1,4 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <!--Build-->
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <LangVersion>9.0</LangVersion>
@@ -16,45 +17,41 @@
     <RootNamespace>Jorteck.HotReload</RootNamespace>
   </PropertyGroup>
 
-  <!--Uncomment and fill to build a NuGet package for your plugin.-->
-  <!--
-    <PropertyGroup>
-      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  <!--Package-->
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
-      <PackageId>$(AssemblyName)</PackageId>
-      <Authors></Authors>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Authors>Jorteck</Authors>
 
-      <RepositoryUrl></RepositoryUrl>
-      <RepositoryType></RepositoryType>
+    <RepositoryUrl>https://github.com/Jorteck/NWN.HotReload</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
 
-      <Description>
-        A NWN Anvil plugin: https://github.com/nwn-dotnet/Anvil
-      </Description>
+    <Description>
+      An Anvil plugin that automatically reloads the server when a plugin binary change is detected.
+    </Description>
 
-      <PackageTags>Neverwinter Nights;NWN;</PackageTags>
-      <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    </PropertyGroup>
-  -->
+    <PackageTags>Neverwinter Nights;NWN;</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
 
-  <!--Uncomment to include debug symbols, source code and documentation with your nuget package/plugin.-->
-  <!--
-    <PropertyGroup>
-      <GenerateDocumentationFile>true</GenerateDocumentationFile>
-      <EmbedUntrackedSources>true</EmbedUntrackedSources>
-      <PublishRepositoryUrl>true</PublishRepositoryUrl>
-      <IncludeSymbols>true</IncludeSymbols>
-      <DebugSymbols>true</DebugSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
-  -->
+  <!--Debug/Source Link-->
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <DebugSymbols>true</DebugSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <OutputPath>..\bin\Debug\$(AssemblyName)</OutputPath>
+    <OutputPath>bin\Debug\$(AssemblyName)</OutputPath>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <OutputPath>..\bin\Release\$(AssemblyName)</OutputPath>
+    <OutputPath>bin\Release\$(AssemblyName)</OutputPath>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>Portable</DebugType>
     <PlatformTarget>x64</PlatformTarget>
