@@ -59,7 +59,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NWN.Anvil" Version="8193.34.1" ExcludeAssets="runtime" PrivateAssets="all" />
+    <PackageReference Include="NWN.Anvil" Version="8193.34.24" ExcludeAssets="runtime" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="5.0.0" />
   </ItemGroup>
 
