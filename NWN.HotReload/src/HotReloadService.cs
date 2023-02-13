@@ -4,6 +4,7 @@ using System.Threading;
 using Anvil;
 using Anvil.API;
 using Anvil.Internal;
+using Anvil.Plugins;
 using Anvil.Services;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Primitives;
@@ -19,7 +20,7 @@ namespace Jorteck.HotReload
     private readonly PhysicalFileProvider fileProvider;
     private readonly CancellationTokenSource cts = new CancellationTokenSource();
 
-    public HotReloadService(PluginStorageService pluginStorageService)
+    public HotReloadService(PluginManager pluginManager)
     {
       if (!EnvironmentConfig.ReloadEnabled)
       {
@@ -27,10 +28,10 @@ namespace Jorteck.HotReload
         return;
       }
 
-      string path = Directory.GetParent(typeof(HotReloadService).Assembly.Location)!.Parent!.FullName;
-      Log.Warn($"Setting watch on directory {path} for plugin binary changes...");
+      string anvilPluginsPath = Path.GetFullPath(Path.Combine(EnvironmentConfig.AnvilHome, "Plugins"));
+      Log.Warn($"Setting watch on directory {anvilPluginsPath} for plugin binary changes...");
 
-      fileProvider = new PhysicalFileProvider(path)
+      fileProvider = new PhysicalFileProvider(anvilPluginsPath)
       {
         UsePollingFileWatcher = true,
         UseActivePolling = true,
