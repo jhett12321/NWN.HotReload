@@ -25,7 +25,7 @@
     <PackageId>$(AssemblyName)</PackageId>
     <Authors>Jorteck</Authors>
 
-    <RepositoryUrl>https://github.com/Jorteck/NWN.HotReload</RepositoryUrl>
+    <RepositoryUrl>https://github.com/jhett12321/NWN.HotReload</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
 
     <Description>
