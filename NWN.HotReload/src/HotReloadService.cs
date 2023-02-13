@@ -4,7 +4,6 @@ using System.Threading;
 using Anvil;
 using Anvil.API;
 using Anvil.Internal;
-using Anvil.Plugins;
 using Anvil.Services;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Primitives;
@@ -20,7 +19,7 @@ namespace Jorteck.HotReload
     private readonly PhysicalFileProvider fileProvider;
     private readonly CancellationTokenSource cts = new CancellationTokenSource();
 
-    public HotReloadService(PluginManager pluginManager)
+    public HotReloadService()
     {
       if (!EnvironmentConfig.ReloadEnabled)
       {
