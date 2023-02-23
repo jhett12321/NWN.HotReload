@@ -27,7 +27,7 @@ namespace Jorteck.HotReload
         return;
       }
 
-      string anvilPluginsPath = Path.GetFullPath(Path.Combine(EnvironmentConfig.AnvilHome, "Plugins"));
+      string anvilPluginsPath = Path.GetFullPath(Path.Combine(EnvironmentConfig.AnvilHome, "Plugins"), NwServer.Instance.UserDirectory);
       Log.Warn($"Setting watch on directory {anvilPluginsPath} for plugin binary changes...");
 
       fileProvider = new PhysicalFileProvider(anvilPluginsPath)
